@@ -1,0 +1,37 @@
+"use strict";
+exports.__esModule = true;
+var person_1 = require("./person");
+var Profession;
+(function (Profession) {
+    Profession["developer"] = "Developer";
+    Profession["tester"] = "Tester";
+    Profession["manager"] = "Manager";
+    Profession["director"] = "Director";
+})(Profession || (Profession = {}));
+;
+var platform_1 = require("./platform");
+var Device;
+(function (Device) {
+    Device["cartucho"] = "Cartucho";
+    Device["tarjeta"] = "Tarjeta";
+    Device["cd"] = "Cd";
+    Device["dvd"] = "Dvd";
+    Device["bluray"] = "Bluray";
+})(Device || (Device = {}));
+;
+var videogame_1 = require("./videogame");
+var mario = new person_1.Person("Mario", "Italiano", Profession.tester, 36);
+var luigi = new person_1.Person("Luigi", "Italiano", Profession.manager, 36);
+var wario = new person_1.Person("Mario", "Italiano", Profession.developer, 36);
+var jugadores = [mario, luigi, wario];
+var idiomas = ["español", "inglés", "catalán", "francés"];
+var plat1 = new platform_1.Platform("Nirichugui", 2015, "Chum-chum", 1300, "cool", false, 4, true, Device.tarjeta, "black");
+var plat2 = new platform_1.Platform("Nirichugui", 2015, "Chum-chum", 1300, "cool", false, 4, true, Device.tarjeta, "black");
+var plat3 = new platform_1.Platform("Sarandonguix", 2000, "Siao-Li", 3500, "fresh", true, 60, false, Device.cartucho, "white");
+var disponibles = [plat1, plat2, plat3];
+var vg1 = new videogame_1.Videogame("Anchoas VS Tiburones", 2020, jugadores, "Español", mario, idiomas, disponibles, 40, 9);
+console.log(vg1.specificPlatform(plat1));
+console.log(vg1.specificDeveloper(mario));
+console.log(vg1.specificLanguage("catalán"));
+vg1.mostrarConsola();
+console.log(vg1.mostrarValor());
